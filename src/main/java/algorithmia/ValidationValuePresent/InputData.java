@@ -1,4 +1,4 @@
-package algorithmia.validationvaluepresent;
+package algorithmia.ValidationValuePresent;
 
 public class InputData {
 

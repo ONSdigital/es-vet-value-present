@@ -1,4 +1,4 @@
-package algorithmia.validationvaluepresent;
+package algorithmia.ValidationValuePresent;
 
 /**
  * Validation rule for Value Present.
