@@ -1,21 +1,27 @@
 package algorithmia.validationvaluepresent;
 
-
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class ValidationValuePresentTest {
 
-    private final ValidationValuePresent underTest;
-
-    public ValidationValuePresentTest() {
-        underTest = new ValidationValuePresent();
+    @Test
+    public void valueProvided_NotTriggered()  {
+        String inputJson = "{\"value\":\"Banana\"}";
+        String expectedJsonOutput =  "{\"valueFormula\":\"Banana != ''\",\"triggered\":true,\"metaData\":\"{}\"}";
+        ValidationValuePresent algorithm = new ValidationValuePresent();
+        String outputJson = algorithm.apply(inputJson).toString();
+        assertEquals(expectedJsonOutput, outputJson);
     }
 
     @Test
-    public void testValidationValuePresent() throws Exception {
-        assertThat(underTest.apply("Bob"), equalTo("Hello Bob"));
+    public void valueNotProvided_Triggered()  {
+        String inputJson = "{\"value\":\"\"}";
+        String expectedJsonOutput =  "{\"valueFormula\":\" != ''\",\"triggered\":false,\"metaData\":\"{}\"}";
+        ValidationValuePresent algorithm = new ValidationValuePresent();
+        String outputJson = algorithm.apply(inputJson).toString();
+        assertEquals(expectedJsonOutput, outputJson);
     }
+
 }
