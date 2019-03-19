@@ -1,4 +1,4 @@
-package algorithmia.ValidationValuePresent;
+package algorithmia.validationvaluepresent;
 
 import com.algorithmia.*;
 import com.algorithmia.algo.*;
